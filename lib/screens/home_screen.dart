@@ -30,18 +30,25 @@ class _MainHomeState extends State<MainHome> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        unselectedFontSize: 15,
+        selectedLabelStyle: TextStyle(fontSize: 16),
+        selectedIconTheme: IconThemeData(size: 30),
+        unselectedIconTheme: IconThemeData(size: 25, color: Colors.black),
+        unselectedLabelStyle: TextStyle(color: Colors.black, fontSize: 14),
+        selectedFontSize: 18,
+        elevation: 10,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'HOME',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.store),
+            label: 'STORE',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.account_circle_rounded),
+            label: 'PROFILE',
           ),
         ],
         currentIndex: _selectedIndex,

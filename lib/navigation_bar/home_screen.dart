@@ -11,6 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          elevation: 2,
           backgroundColor: Colors.white,
           leading: Icon(
             Icons.menu,
@@ -39,23 +40,162 @@ class _HomeScreenState extends State<HomeScreen> {
         body: ListView(
           children: [
             Container(
-              height: 300,
-              color: Colors.red,
+              height: 230,
+              color: Colors.white,
               child: Column(
                 children: [
-                  Container(
-                    height: 150,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    height: 150,
-                    color: Colors.blue,
-                  )
+                  HomeIconsWidgets(),
+                  HomeIconsWidgets(),
                 ],
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class HomeIconsWidgets extends StatelessWidget {
+  const HomeIconsWidgets({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(left: 5),
+      height: 110,
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                child: Icon(
+                  Icons.add_business_outlined,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Furniture",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                child: Icon(
+                  Icons.house_siding_sharp,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Living",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                child: Icon(
+                  Icons.local_shipping_outlined,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Bedroom",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                child: Icon(
+                  Icons.add_business_outlined,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Kids Room",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                child: Icon(
+                  Icons.graphic_eq_rounded,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Mattresses",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
