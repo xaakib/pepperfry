@@ -24,31 +24,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Icon(Icons.close),
+                  SizedBox(height: 20),
+                  InkWell(
+                      onTap: () => Navigator.pop(context),
+                      child: Icon(Icons.close)),
                   RegisterTexts(),
                   Column(
                     children: [
                       TextFormField(
                         decoration: InputDecoration(hintText: "Name"),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       TextFormField(
                         decoration: InputDecoration(hintText: "Mobile"),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       TextFormField(
                         decoration: InputDecoration(hintText: "Email ID"),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       TextFormField(
                         decoration: InputDecoration(
                             suffixIcon: GestureDetector(
@@ -66,9 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             hintText: "Password"),
                       ),
-                      SizedBox(
-                        height: 40,
-                      ),
+                      SizedBox(height: 40),
                       InkWell(
                         onTap: () => Navigator.push(
                             context,
@@ -96,9 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Center(
                       child: Text(
                     "By clicking here, you have read and agree to",
@@ -128,9 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             fontSize: 15,
                             fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(
-                        width: 5,
-                      ),
+                      SizedBox(width: 5),
                       Text("Privacy Policy",
                           style: TextStyle(
                               decoration: TextDecoration.underline,
@@ -139,20 +127,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               fontWeight: FontWeight.w400))
                     ],
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
+                  SizedBox(height: 50),
                   Center(
                     child: Text("Existing User? Log In",
                         style: TextStyle(
                             decoration: TextDecoration.underline,
+                            decorationThickness: 2,
                             color: Colors.red,
                             fontSize: 18,
                             fontWeight: FontWeight.w600)),
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
+                  SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -161,12 +146,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.5), fontSize: 15),
                       ),
-                      SizedBox(
-                        width: 15,
-                      ),
+                      SizedBox(width: 20),
                       Container(
-                        height: 50,
-                        width: 50,
+                        height: 40,
+                        width: 40,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -174,9 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 image: AssetImage(
                                     "assets/Icons/facebook_icon.png"))),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
+                      SizedBox(width: 10),
                       Container(
                         height: 50,
                         width: 50,
@@ -209,33 +190,25 @@ class RegisterTexts extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
         Text(
           "Register and Get",
           style: TextStyle(
               fontSize: 18, fontWeight: FontWeight.w500, color: Colors.red),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
         Text(
           "Rs 2,501 Instantly\nIn Your Perperfry Wallet",
           style: TextStyle(
               fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
         ),
-        SizedBox(
-          height: 7,
-        ),
+        SizedBox(height: 7),
         Text(
           "These Credits Can Be Clubbed With Other Offes",
           style: TextStyle(
               fontSize: 15, fontWeight: FontWeight.normal, color: Colors.black),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pepperfry/screens/login_screen.dart';
 import 'package:pepperfry/screens/register_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -6,7 +7,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        body: Container(  
           height: double.infinity,
           width: double.infinity,
           decoration: BoxDecoration(
@@ -45,19 +46,23 @@ class BottomDesing extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 50,
-                width: 170,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.red)),
-                child: Center(
-                    child: Text(
-                  "LOG IN",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18,
-                      color: Colors.red),
-                )),
+              InkWell(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen())),
+                child: Container(
+                  height: 50,
+                  width: 170,
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.red)),
+                  child: Center(
+                      child: Text(
+                    "LOG IN",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.red),
+                  )),
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(context,
@@ -84,9 +89,7 @@ class BottomDesing extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           Container(
             alignment: Alignment.bottomCenter,
             height: 20,
@@ -102,9 +105,7 @@ class BottomDesing extends StatelessWidget {
                         color: Colors.black.withOpacity(0.5),
                         fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
-                    width: 2,
-                  ),
+                  SizedBox(width: 2),
                   Icon(Icons.arrow_forward_ios_outlined,
                       size: 20, color: Colors.black.withOpacity(0.5)),
                 ],
