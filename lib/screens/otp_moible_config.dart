@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pepperfry/screens/register_screen.dart';
 
+import 'home_screen.dart';
+
 class OtpMobileConfig extends StatefulWidget {
   @override
   _OtpMobileConfigState createState() => _OtpMobileConfigState();
@@ -25,10 +27,8 @@ class _OtpMobileConfigState extends State<OtpMobileConfig> {
                 ),
                 SizedBox(height: 40),
                 InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RegisterScreen())),
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainHome())),
                   child: Container(
                     height: 60,
                     child: Center(
