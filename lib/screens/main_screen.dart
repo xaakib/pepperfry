@@ -74,18 +74,14 @@ class BottomDesing extends StatelessWidget {
                             color: Colors.white,
                             fontSize: 18))),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    stops: [0.1, 0.5, 0.7, 0.9],
-                    colors: [
-                      Colors.red[600],
-                      Colors.red[500],
-                      Colors.yellow[600],
-                      Colors.yellow[500],
-                    ],
-                  ),
-                ),
+                    gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.red,
+                    Colors.yellow[700],
+                  ],
+                )),
               ),
             ],
           ),
@@ -108,15 +104,10 @@ class BottomDesing extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    width: 5,
+                    width: 2,
                   ),
-                  Text(
-                    ">",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black.withOpacity(0.5),
-                        fontWeight: FontWeight.w500),
-                  ),
+                  Icon(Icons.arrow_forward_ios_outlined,
+                      size: 20, color: Colors.black.withOpacity(0.5)),
                 ],
               ),
             ),
