@@ -67,8 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             MaterialPageRoute(
                                 builder: (context) => RegisterScreen())),
                         child: Container(
-                          height: 50,
-                          width: 250,
+                          height: 60,
                           child: Center(
                               child: Text("REGISTER",
                                   style: TextStyle(

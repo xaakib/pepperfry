@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pepperfry/screens/login_screen.dart';
 import 'package:pepperfry/screens/register_screen.dart';
+
+import 'login_screen.dart';
+import 'otp_moible_config.dart';
 
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(  
+        body: Container(
           height: double.infinity,
           width: double.infinity,
           decoration: BoxDecoration(
@@ -98,12 +100,18 @@ class BottomDesing extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "SKIP IT FOR NOW",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black.withOpacity(0.5),
-                        fontWeight: FontWeight.w500),
+                  InkWell(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => OtpMobileConfig())),
+                    child: Text(
+                      "SKIP IT FOR NOW",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black.withOpacity(0.5),
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                   SizedBox(width: 2),
                   Icon(Icons.arrow_forward_ios_outlined,
