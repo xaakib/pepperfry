@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:pepperfry/screens/register_screen.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -35,10 +34,6 @@ class MainScreen extends StatelessWidget {
 }
 
 class BottomDesing extends StatelessWidget {
-  const BottomDesing({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,24 +59,28 @@ class BottomDesing extends StatelessWidget {
                       color: Colors.red),
                 )),
               ),
-              Container(
-                height: 50,
-                width: 170,
-                child: Center(
-                    child: Text("REGISTER",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                            fontSize: 18))),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Colors.red,
-                    Colors.yellow[700],
-                  ],
-                )),
+              InkWell(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RegisterScreen())),
+                child: Container(
+                  height: 50,
+                  width: 170,
+                  child: Center(
+                      child: Text("REGISTER",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontSize: 18))),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.red,
+                      Colors.yellow[700],
+                    ],
+                  )),
+                ),
               ),
             ],
           ),
