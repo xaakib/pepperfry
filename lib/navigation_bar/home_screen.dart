@@ -23,8 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 scaffoldKey.currentState.openDrawer();
               }),
           centerTitle: false,
+          leadingWidth: 30,
           title: Text(
-            "pf",
+            "IDIYA",
             style: TextStyle(
                 color: Colors.red, fontWeight: FontWeight.bold, fontSize: 30),
           ),
@@ -109,6 +110,58 @@ class _HomeScreenState extends State<HomeScreen> {
                               fit: BoxFit.cover,
                               image: NetworkImage(
                                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGIlZ-x234VrT2x-Musuc5DCE2rjXl-rk_KuFD_RpamdDBGQRAg7leZ5HUEnahEvPWag&usqp=CAU"))),
+                    ),
+                    SizedBox(height: 20),
+                    Text("SUPER FRESH DEALS",
+                        style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 5),
+                    Text("Just For Hue",
+                        style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontSize: 16,
+                            color: Colors.black.withOpacity(0.5),
+                            fontWeight: FontWeight.w500)),
+                    SizedBox(height: 10),
+                    Container(
+                        height: 260,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.white,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          physics: BouncingScrollPhysics(),
+                          children: [
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                          ],
+                        )),
+                    Container(
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "COLOR YOUR HOME WITH THESE BRANDS",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            "Brands For All Types",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 20),
                     Text("SUPER FRESH DEALS",
@@ -630,7 +683,6 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
                 SizedBox(height: 5),
                 Text(
                   "Modular\nFurniture",
-                  
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: Colors.black),
                 )
