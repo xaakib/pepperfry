@@ -9,19 +9,53 @@ class _StoreScreenState extends State<StoreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: Colors.white,
-        //   elevation: 2,
-        //   leading: IconButton(
-        //       icon: (Icon(Icons.keyboard_arrow_left_outlined,
-        //           color: Colors.black, size: 35)),
-        //       onPressed: () => Navigator.pop(context)),
-        // ),
+        appBar: AppBar(
+          elevation: 2,
+          backgroundColor: Colors.white,
+           centerTitle: false,
+          leadingWidth: 0,
+          title: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/Icons/diana_icon.png"))),
+          ),
+          actions: [
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/Icons/search-512.png"))),
+              ),
+            ),
+            SizedBox(width: 10),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/Icons/empty_wishlist.png"))),
+              ),
+            ),
+            SizedBox(width: 10),
+            IconButton(
+                icon: Icon(Icons.shopping_cart_outlined,
+                    size: 30, color: Colors.black),
+                onPressed: () {}),
+          ],
+        ),
         body: Container(
+            color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                  physics: BouncingScrollPhysics(),
                   itemCount: storeItes.length,
                   itemBuilder: (context, index) {
                     return ListTile(
@@ -85,7 +119,7 @@ List<StoreItems> storeItes = [
   StoreItems(
     title: "LIGHTING",
   ),
-   StoreItems(
+  StoreItems(
     title: "LIGHTING",
   ),
   StoreItems(

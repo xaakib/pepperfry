@@ -9,11 +9,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Text("Profile Screen"),
-        ),
-      ),
-    );
+        body: Container(
+      child: Center(child: Text("Profile Screen")),
+    ));
   }
 }

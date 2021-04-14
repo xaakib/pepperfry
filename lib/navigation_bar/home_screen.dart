@@ -24,10 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
               }),
           centerTitle: false,
           leadingWidth: 30,
-          title: Text(
-            "IDIYA",
-            style: TextStyle(
-                color: Colors.red, fontWeight: FontWeight.bold, fontSize: 30),
+          title: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/Icons/diana_icon.png"))),
           ),
           actions: [
             InkWell(
