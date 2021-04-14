@@ -6,15 +6,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: scaffoldKey,
         backgroundColor: Colors.black.withOpacity(0.03),
         appBar: AppBar(
           elevation: 2,
           backgroundColor: Colors.white,
-          leading: Icon(Icons.menu, color: Colors.black),
+          leading: IconButton(
+              icon: Icon(Icons.menu, color: Colors.black),
+              onPressed: () {
+                scaffoldKey.currentState.openDrawer();
+              }),
           centerTitle: false,
           title: Text(
             "pf",
@@ -35,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {}),
           ],
         ),
+        drawer: DrawerClass(),
         body: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
@@ -63,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image:
-                                  AssetImage("assets/Icons/shoping_cover.png"))),
+                              image: AssetImage(
+                                  "assets/Icons/shoping_cover.png"))),
                     ),
                     SizedBox(height: 20),
                     Container(
@@ -144,6 +152,176 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class DrawerClass extends StatefulWidget {
+  @override
+  _DrawerClassState createState() => _DrawerClassState();
+}
+
+class _DrawerClassState extends State<DrawerClass> {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            Container(
+              height: 100,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          "https://cdn.shopify.com/s/files/1/2249/1043/products/Grey_grande.jpg?v=1577676106"))),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Stack(
+                  children: [
+                    Positioned(
+                        bottom: 20,
+                        child: Text(
+                          "Hi tahmid turzo,",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        )),
+                    Positioned(
+                        bottom: 5,
+                        child: Text(
+                          "tahamidturzo3@gmail.com",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15),
+                        )),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width,
+                      color: Colors.black.withOpacity(0.03),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "SHOP BY DEPARMENT",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, letterSpacing: 1),
+                          ),
+                          Icon(Icons.keyboard_arrow_right_rounded),
+                        ],
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Gifts Cards",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Corporate Enquiries",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Find A Studio",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Buy on Phone",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Our Blogs",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Partner With Us",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "My Account",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Track Order",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "Need Help?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text(
+                        "About Us",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
