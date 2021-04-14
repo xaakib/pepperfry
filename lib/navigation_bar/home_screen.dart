@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 200,
+                height: 230,
                 color: Colors.white,
                 child: Column(
                   children: [
@@ -425,12 +425,13 @@ class HomeIconsWidgets extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width,
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -452,7 +453,6 @@ class HomeIconsWidgets extends StatelessWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -474,7 +474,6 @@ class HomeIconsWidgets extends StatelessWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -496,7 +495,6 @@ class HomeIconsWidgets extends StatelessWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -518,7 +516,6 @@ class HomeIconsWidgets extends StatelessWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -552,12 +549,12 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
+        height: 100,
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -579,7 +576,6 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -587,9 +583,7 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(
-                       "assets/Icons/plant.png"
-                      ),
+                      image: AssetImage("assets/Icons/plant.png"),
                     ),
                   ),
                 ),
@@ -601,7 +595,6 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -610,20 +603,19 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage(
-                        "assets/Icons/bed.png",
+                        "assets/Icons/light.png",
                       ),
                     ),
                   ),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Bedroom",
+                  "Lighting",
                   style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -631,21 +623,20 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(
-                        "assets/Icons/crib.png",
-                      ),
+                      image: AssetImage("assets/Icons/almira.png"),
                     ),
                   ),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Kids Room",
+                  "Modular\nFurniture",
+                  
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 50,
@@ -653,15 +644,14 @@ class HomeIconsWidgetsTwo extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(
-                        "assets/Icons/matress.png",
-                      ),
+                      image: AssetImage("assets/Icons/sale.png"),
                     ),
                   ),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Mattresses",
+                  "Cleanrance\nSale",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
