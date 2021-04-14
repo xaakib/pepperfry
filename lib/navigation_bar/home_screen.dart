@@ -151,16 +151,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             "COLOR YOUR HOME WITH THESE BRANDS",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 5),
                           Text(
                             "Brands For All Types",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -203,16 +199,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             "COLOR YOUR HOME WITH THESE BRANDS",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 5),
                           Text(
                             "Brands For All Types",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -250,30 +242,41 @@ class _DrawerClassState extends State<DrawerClass> {
                       fit: BoxFit.cover,
                       image: NetworkImage(
                           "https://cdn.shopify.com/s/files/1/2249/1043/products/Grey_grande.jpg?v=1577676106"))),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Stack(
-                  children: [
-                    Positioned(
-                        bottom: 20,
-                        child: Text(
-                          "Hi tahmid turzo,",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        )),
-                    Positioned(
-                        bottom: 5,
-                        child: Text(
-                          "tahamidturzo3@gmail.com",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15),
-                        )),
-                  ],
-                ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 60,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.30),
+                          borderRadius: BorderRadius.circular(5)),
+                      height: 40,
+                    ),
+                  ),
+                  Positioned(
+                      bottom: 21,
+                      left: 10,
+                      child: Text(
+                        "Hi Ayush Sehgal,",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      )),
+                  Positioned(
+                      bottom: 5,
+                      left: 10,
+                      child: Text(
+                        "ayush_sehgal@idiya.co.nz",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15),
+                      )),
+                ],
               ),
             ),
             Padding(
@@ -302,91 +305,69 @@ class _DrawerClassState extends State<DrawerClass> {
                       title: Text(
                         "Gifts Cards",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "Corporate Enquiries",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "Find A Studio",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "Buy on Phone",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "Our Blogs",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "Partner With Us",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "My Account",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
                       title: Text(
                         "Track Order",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontWeight: FontWeight.w500, color: Colors.black),
                       ),
                     ),
                     ListTile(
-                      title: Text(
-                        "Need Help?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
-                      ),
+                      title: Text("Need Help?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black)),
                     ),
                     ListTile(
-                      title: Text(
-                        "About Us",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
-                      ),
+                      title: Text("About Us",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black)),
                     ),
                   ],
                 ),
@@ -413,7 +394,7 @@ class SuperFreshItems extends StatelessWidget {
         children: [
           Container(
             height: 200,
-            width: 170,
+            width: 180,
             decoration: BoxDecoration(
                 color: Colors.yellow,
                 image: DecorationImage(
@@ -423,7 +404,7 @@ class SuperFreshItems extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Container(
-            width: 170,
+            width: 180,
             child: Text(
               "Juro 4 Door Since Cabnet",
               style: TextStyle(
@@ -435,28 +416,28 @@ class SuperFreshItems extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Container(
-            width: 170,
+            width: 180,
             child: Row(
               children: [
                 Text(
-                  " ₹6499",
+                  "NZ \$600",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 13,
                     color: Colors.red,
                     fontWeight: FontWeight.w500,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(width: 5),
+                SizedBox(width: 4),
                 Text(
-                  " ₹6499",
+                  "NZ \$560",
                   style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.w500,
                       decoration: TextDecoration.lineThrough),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(width: 5),
+                SizedBox(width: 2),
                 Text(
                   "(60% off)",
                   style: TextStyle(
