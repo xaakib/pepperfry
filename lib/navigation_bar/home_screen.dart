@@ -34,29 +34,90 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {}),
           ],
         ),
-        body: ListView(
-          children: [
-            Container(
-              height: 230,
-              color: Colors.white,
-              child: Column(
-                children: [
-                  HomeIconsWidgets(),
-                  SizedBox(height: 10),
-                  HomeIconsWidgets(),
-                ],
-              ),
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 230,
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      HomeIconsWidgets(),
+                      SizedBox(height: 10),
+                      HomeIconsWidgets(),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  height: 250,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/Icons/shoping_cover.png"))),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              "https://media.extra.com/i/aurora/FreeDelivery_Strip_en?fmt=jpg"))),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  height: 180,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGIlZ-x234VrT2x-Musuc5DCE2rjXl-rk_KuFD_RpamdDBGQRAg7leZ5HUEnahEvPWag&usqp=CAU"))),
+                ),
+                SizedBox(height: 20),
+                Text("SUPER FRESH DEALS",
+                    style: TextStyle(
+                        letterSpacing: 1.5,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold)),
+                SizedBox(height: 5),
+                Text("Just For Hue",
+                    style: TextStyle(
+                        letterSpacing: 1.5,
+                        fontSize: 16,
+                        color: Colors.black.withOpacity(0.5),
+                        fontWeight: FontWeight.w500)),
+                SizedBox(height: 10),
+                Container(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.red,
+                  child: Container(
+                    height: 200,
+                    width: 150,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 160,
+                          width: 150,
+                          color: Colors.pink,
+                        ),
+                        SizedBox(height: 5),
+                        Text("This IS Product")
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            Container(
-              height: 250,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/Icons/shoping_cover.png"))),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -77,11 +138,17 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
-                    child: Icon(Icons.add_business_outlined,
-                        size: 50, color: Colors.red),
-                    color: Colors.white),
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/kids.jpg",
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 5),
                 Text(
                   "Furniture",
