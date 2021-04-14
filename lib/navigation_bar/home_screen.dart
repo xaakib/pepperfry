@@ -10,6 +10,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black.withOpacity(0.03),
         appBar: AppBar(
           elevation: 2,
           backgroundColor: Colors.white,
@@ -36,89 +37,189 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 230,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      HomeIconsWidgets(),
-                      SizedBox(height: 10),
-                      HomeIconsWidgets(),
-                    ],
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 230,
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    HomeIconsWidgets(),
+                    SizedBox(height: 10),
+                    HomeIconsWidgets(),
+                  ],
                 ),
-                SizedBox(height: 20),
-                Container(
-                  height: 250,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage("assets/Icons/shoping_cover.png"))),
-                ),
-                SizedBox(height: 20),
-                Container(
-                  height: 80,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              "https://media.extra.com/i/aurora/FreeDelivery_Strip_en?fmt=jpg"))),
-                ),
-                SizedBox(height: 20),
-                Container(
-                  height: 180,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGIlZ-x234VrT2x-Musuc5DCE2rjXl-rk_KuFD_RpamdDBGQRAg7leZ5HUEnahEvPWag&usqp=CAU"))),
-                ),
-                SizedBox(height: 20),
-                Text("SUPER FRESH DEALS",
-                    style: TextStyle(
-                        letterSpacing: 1.5,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold)),
-                SizedBox(height: 5),
-                Text("Just For Hue",
-                    style: TextStyle(
-                        letterSpacing: 1.5,
-                        fontSize: 16,
-                        color: Colors.black.withOpacity(0.5),
-                        fontWeight: FontWeight.w500)),
-                SizedBox(height: 10),
-                Container(
-                  height: 200,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.red,
-                  child: Container(
-                    height: 200,
-                    width: 150,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 160,
-                          width: 150,
-                          color: Colors.pink,
-                        ),
-                        SizedBox(height: 5),
-                        Text("This IS Product")
-                      ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 20),
+                    Container(
+                      height: 250,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image:
+                                  AssetImage("assets/Icons/shoping_cover.png"))),
                     ),
+                    SizedBox(height: 20),
+                    Container(
+                      height: 80,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://media.extra.com/i/aurora/FreeDelivery_Strip_en?fmt=jpg"))),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      height: 180,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGIlZ-x234VrT2x-Musuc5DCE2rjXl-rk_KuFD_RpamdDBGQRAg7leZ5HUEnahEvPWag&usqp=CAU"))),
+                    ),
+                    SizedBox(height: 20),
+                    Text("SUPER FRESH DEALS",
+                        style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 5),
+                    Text("Just For Hue",
+                        style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontSize: 16,
+                            color: Colors.black.withOpacity(0.5),
+                            fontWeight: FontWeight.w500)),
+                    SizedBox(height: 10),
+                    Container(
+                        height: 260,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.white,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          physics: BouncingScrollPhysics(),
+                          children: [
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                            SuperFreshItems(),
+                          ],
+                        )),
+                    Container(
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "COLOR YOUR HOME WITH THESE BRANDS",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            "Brands For All Types",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SuperFreshItems extends StatelessWidget {
+  const SuperFreshItems({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 200,
+            width: 170,
+            decoration: BoxDecoration(
+                color: Colors.yellow,
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8LnjDtFG-zclEGOjZKJ74ClreaheG9RtgA&usqp=CAU"))),
+          ),
+          SizedBox(height: 5),
+          Container(
+            width: 170,
+            child: Text(
+              "Juro 4 Door Since Cabnet",
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          SizedBox(height: 5),
+          Container(
+            width: 170,
+            child: Row(
+              children: [
+                Text(
+                  " ₹6499",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.red,
+                    fontWeight: FontWeight.w500,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(width: 5),
+                Text(
+                  " ₹6499",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.lineThrough),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(width: 5),
+                Text(
+                  "(60% off)",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
-          ),
-        ),
+          )
+        ],
       ),
     );
   }

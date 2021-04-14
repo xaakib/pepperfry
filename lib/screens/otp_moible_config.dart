@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pepperfry/screens/register_screen.dart';
 
-import 'home_screen.dart';
+import 'main_home.dart';
 
 class OtpMobileConfig extends StatefulWidget {
   @override

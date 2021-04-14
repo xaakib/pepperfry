@@ -35,7 +35,7 @@ class _MainHomeState extends State<MainHome> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'HOME'),
           BottomNavigationBarItem(icon: Icon(Icons.store), label: 'STORE'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_rounded), label: 'PROFILE'),
+              icon: Icon(Icons.account_circle_rounded), label: 'PROFILE')
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],

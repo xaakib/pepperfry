@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pepperfry/screens/home_screen.dart';
+import 'package:pepperfry/screens/main_home.dart';
 
 import 'otp_moible_config.dart';
 
