@@ -10,13 +10,13 @@ class MainScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          height: double.infinity,
-          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "https://images.unsplash.com/photo-1560830913-db410393bcdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"))),
+            image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage("assets/Icons/splash_screen.png")),
+          ),
           child: Stack(
             children: [
               Positioned(
