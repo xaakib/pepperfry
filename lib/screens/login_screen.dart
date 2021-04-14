@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pepperfry/screens/home_screen.dart';
 
 import 'otp_moible_config.dart';
 
@@ -48,10 +49,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
                   InkWell(
-                    // onTap: () => Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => RegisterScreen())),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MainHome())),
                     child: Container(
                       height: 60,
                       child: Center(

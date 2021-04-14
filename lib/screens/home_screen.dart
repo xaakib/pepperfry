@@ -11,11 +11,7 @@ class MainHome extends StatefulWidget {
 class _MainHomeState extends State<MainHome> {
   int _selectedIndex = 0;
 
-  List _widgetOptions = <Widget>[
-    HomeScreen(),
-    StoreScreen(),
-    ProfileScreen(),
-  ];
+  List _widgetOptions = <Widget>[HomeScreen(), StoreScreen(), ProfileScreen()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -26,9 +22,7 @@ class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         unselectedFontSize: 15,
         selectedLabelStyle: TextStyle(fontSize: 16),
@@ -38,18 +32,10 @@ class _MainHomeState extends State<MainHome> {
         selectedFontSize: 18,
         elevation: 10,
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'HOME'),
+          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'STORE'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'HOME',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.store),
-            label: 'STORE',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_rounded),
-            label: 'PROFILE',
-          ),
+              icon: Icon(Icons.account_circle_rounded), label: 'PROFILE'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],

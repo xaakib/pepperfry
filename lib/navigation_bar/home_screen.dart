@@ -13,10 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           elevation: 2,
           backgroundColor: Colors.white,
-          leading: Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
+          leading: Icon(Icons.menu, color: Colors.black),
           centerTitle: false,
           title: Text(
             "pf",
@@ -45,16 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   HomeIconsWidgets(),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   HomeIconsWidgets(),
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             Container(
               height: 250,
               width: MediaQuery.of(context).size.width,
@@ -71,16 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class HomeIconsWidgets extends StatelessWidget {
-  const HomeIconsWidgets({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-      
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,24 +77,15 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
-                  child: Icon(
-                    Icons.add_business_outlined,
-                    size: 50,
-                    color: Colors.red,
-                  ),
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
+                    height: 60,
+                    width: 60,
+                    child: Icon(Icons.add_business_outlined,
+                        size: 50, color: Colors.red),
+                    color: Colors.white),
+                SizedBox(height: 5),
                 Text(
                   "Furniture",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
@@ -116,22 +95,14 @@ class HomeIconsWidgets extends StatelessWidget {
                 Container(
                   height: 60,
                   width: 60,
-                  child: Icon(
-                    Icons.house_siding_sharp,
-                    size: 50,
-                    color: Colors.red,
-                  ),
+                  child: Icon(Icons.house_siding_sharp,
+                      size: 50, color: Colors.red),
                   color: Colors.white,
                 ),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 5),
                 Text(
                   "Living",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
@@ -139,24 +110,15 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
-                  child: Icon(
-                    Icons.local_shipping_outlined,
-                    size: 50,
-                    color: Colors.red,
-                  ),
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
+                    height: 60,
+                    width: 60,
+                    child: Icon(Icons.local_shipping_outlined,
+                        size: 50, color: Colors.red),
+                    color: Colors.white),
+                SizedBox(height: 5),
                 Text(
                   "Bedroom",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
@@ -164,24 +126,15 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
-                  child: Icon(
-                    Icons.add_business_outlined,
-                    size: 50,
-                    color: Colors.red,
-                  ),
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
+                    height: 60,
+                    width: 60,
+                    child: Icon(Icons.add_business_outlined,
+                        size: 50, color: Colors.red),
+                    color: Colors.white),
+                SizedBox(height: 5),
                 Text(
                   "Kids Room",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
@@ -189,24 +142,15 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
-                  child: Icon(
-                    Icons.graphic_eq_rounded,
-                    size: 50,
-                    color: Colors.red,
-                  ),
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
+                    height: 60,
+                    width: 60,
+                    child: Icon(Icons.graphic_eq_rounded,
+                        size: 50, color: Colors.red),
+                    color: Colors.white),
+                SizedBox(height: 5),
                 Text(
                   "Mattresses",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 )
               ],
             ),
