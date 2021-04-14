@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pepperfry/screens/register_screen.dart';
+import 'package:idiya/screens/register_screen.dart';
 
 import 'login_screen.dart';
 import 'otp_moible_config.dart';

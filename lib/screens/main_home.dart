@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pepperfry/navigation_bar/home_screen.dart';
-import 'package:pepperfry/navigation_bar/profile_screen.dart';
-import 'package:pepperfry/navigation_bar/store_screen.dart';
+import 'package:idiya/navigation_bar/home_screen.dart';
+import 'package:idiya/navigation_bar/profile_screen.dart';
+import 'package:idiya/navigation_bar/store_screen.dart';
 
 class MainHome extends StatefulWidget {
   @override

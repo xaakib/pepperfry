@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pepperfry/screens/main_home.dart';
 
+import 'main_home.dart';
 import 'otp_moible_config.dart';
 
 class LoginScreen extends StatefulWidget {
