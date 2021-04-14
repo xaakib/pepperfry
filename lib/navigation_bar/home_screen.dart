@@ -29,13 +29,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.red, fontWeight: FontWeight.bold, fontSize: 30),
           ),
           actions: [
-            IconButton(
-                icon: Icon(Icons.search_rounded, size: 30, color: Colors.black),
-                onPressed: () {}),
-            IconButton(
-                icon: Icon(Icons.hourglass_top_outlined,
-                    size: 30, color: Colors.black),
-                onPressed: () {}),
+            // Container(
+            //   height: 30,
+            //   width: 30,
+            //   decoration: BoxDecoration(
+            //       image: DecorationImage(
+            //           image: AssetImage("assets/Icons/search-512.png"))),
+            // ),
+            Image.asset(
+              "assets/Icons/sale.png",
+              height: 50,
+              width: 50,
+            ),
             IconButton(
                 icon: Icon(Icons.shopping_cart_outlined,
                     size: 30, color: Colors.black),
@@ -420,13 +425,13 @@ class HomeIconsWidgets extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        "assets/Icons/kids.jpg",
+                      // image: DecorationImage(
+                      //   fit: BoxFit.cover,
+                      //   image: AssetImage(
+                      //     "assets/Icons/kids.jpg",
+                      //   ),
+                      // ),
                       ),
-                    ),
-                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
