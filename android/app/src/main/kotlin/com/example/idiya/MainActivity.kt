@@ -1,4 +1,4 @@
-package com.example.pepperfry
+package com.example.idiya
 
 import io.flutter.embedding.android.FlutterActivity
 
