@@ -29,18 +29,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.red, fontWeight: FontWeight.bold, fontSize: 30),
           ),
           actions: [
-            // Container(
-            //   height: 30,
-            //   width: 30,
-            //   decoration: BoxDecoration(
-            //       image: DecorationImage(
-            //           image: AssetImage("assets/Icons/search-512.png"))),
-            // ),
-            Image.asset(
-              "assets/Icons/sale.png",
-              height: 50,
-              width: 50,
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/Icons/search-512.png"))),
+              ),
             ),
+            SizedBox(width: 10),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/Icons/empty_wishlist.png"))),
+              ),
+            ),
+            SizedBox(width: 10),
             IconButton(
                 icon: Icon(Icons.shopping_cart_outlined,
                     size: 30, color: Colors.black),
@@ -54,13 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 230,
+                height: 200,
                 color: Colors.white,
                 child: Column(
                   children: [
-                    HomeIconsWidgets(),
                     SizedBox(height: 10),
                     HomeIconsWidgets(),
+                    SizedBox(height: 10),
+                    HomeIconsWidgetsTwo(),
                   ],
                 ),
               ),
@@ -425,13 +436,13 @@ class HomeIconsWidgets extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                      // image: DecorationImage(
-                      //   fit: BoxFit.cover,
-                      //   image: AssetImage(
-                      //     "assets/Icons/kids.jpg",
-                      //   ),
-                      // ),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/Sofa-512.png",
                       ),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
@@ -444,11 +455,16 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
-                  child: Icon(Icons.house_siding_sharp,
-                      size: 50, color: Colors.red),
-                  color: Colors.white,
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/tv.png",
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
@@ -461,11 +477,17 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
-                    child: Icon(Icons.local_shipping_outlined,
-                        size: 50, color: Colors.red),
-                    color: Colors.white),
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/bed.png",
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 5),
                 Text(
                   "Bedroom",
@@ -477,11 +499,17 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
-                    child: Icon(Icons.add_business_outlined,
-                        size: 50, color: Colors.red),
-                    color: Colors.white),
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/crib.png",
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 5),
                 Text(
                   "Kids Room",
@@ -493,11 +521,144 @@ class HomeIconsWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
-                    child: Icon(Icons.graphic_eq_rounded,
-                        size: 50, color: Colors.red),
-                    color: Colors.white),
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/matress.png",
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  "Mattresses",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomeIconsWidgetsTwo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Container(
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/curtains .png",
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  "Furnishings",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                       "assets/Icons/plant.png"
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  "Decor",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/bed.png",
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  "Bedroom",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/crib.png",
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  "Kids Room",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/Icons/matress.png",
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 5),
                 Text(
                   "Mattresses",
