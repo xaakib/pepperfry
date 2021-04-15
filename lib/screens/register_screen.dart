@@ -200,7 +200,7 @@ class RegisterTexts extends StatelessWidget {
         ),
         SizedBox(height: 15),
         Text(
-          "Rs 2,501 Instantly\nIn Your Perperfry Wallet",
+          "NZ \$2051, Instantly\nIn Your Perperfry Wallet",
           style: TextStyle(
               fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
         ),
