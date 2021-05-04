@@ -53,7 +53,7 @@ class BottomDesing extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => LoginScreen())),
                 child: Container(
                   height: 50,
-                  width: 170,
+                   width: MediaQuery.of(context).size.width *0.4,
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.red)),
                   child: Center(
@@ -71,7 +71,7 @@ class BottomDesing extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => RegisterScreen())),
                 child: Container(
                   height: 50,
-                  width: 170,
+                  width: MediaQuery.of(context).size.width *0.4,
                   child: Center(
                       child: Text("REGISTER",
                           style: TextStyle(
