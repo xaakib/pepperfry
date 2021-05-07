@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
 
 import 'main_home.dart';
 import 'otp_moible_config.dart';
@@ -9,12 +13,33 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final usernameController = TextEditingController();
+  final passwodController = TextEditingController();
   bool _showPassword = false;
+  loginAPi(String username, String passowrd) async {
+    final response = await http.post(
+      Uri.parse('https://idiya.co.nz/wp-json/api/v1/token'),
+      headers: <String, String>{
+        'Accept': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        'username': username,
+        'password': passowrd,
+      }),
+    );
+    var datas = jsonDecode(response.body);
+    print(datas);
+    if (response.statusCode == 200) {
+      print("dataok$datas");
+    } else {
+      print("No Data${datas['message']}");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
@@ -49,10 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
                   InkWell(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MainHome())),
+                    onTap: () {
+                      loginAPi(usernameController.text, passwodController.text);
+                    },
                     child: Container(
                       height: 60,
                       child: Center(
