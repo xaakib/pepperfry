@@ -7,29 +7,27 @@ import 'otp_moible_config.dart';
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage("assets/Icons/splash_screen.png")),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 30,
-                left: 0,
-                right: 0,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: BottomDesing(),
-                ),
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage("assets/Icons/splash_screen.png")),
+        ),
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: 30,
+              left: 0,
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: BottomDesing(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -49,11 +47,33 @@ class BottomDesing extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen())),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 400),
+                        transitionsBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secAnimation,
+                            Widget child) {
+                          animation = CurvedAnimation(
+                              parent: animation, curve: Curves.easeOutQuint);
+                          return ScaleTransition(
+                            alignment: Alignment.center,
+                            scale: animation,
+                            child: child,
+                          );
+                        },
+                        pageBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secAnimation) {
+                          return LoginScreen();
+                        },
+                      ));
+                },
                 child: Container(
                   height: 50,
-                   width: MediaQuery.of(context).size.width *0.4,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.red)),
                   child: Center(
@@ -67,11 +87,33 @@ class BottomDesing extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => RegisterScreen())),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 400),
+                        transitionsBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secAnimation,
+                            Widget child) {
+                          animation = CurvedAnimation(
+                              parent: animation, curve: Curves.easeOutQuint);
+                          return ScaleTransition(
+                            alignment: Alignment.center,
+                            scale: animation,
+                            child: child,
+                          );
+                        },
+                        pageBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secAnimation) {
+                          return RegisterScreen();
+                        },
+                      ));
+                },
                 child: Container(
                   height: 50,
-                  width: MediaQuery.of(context).size.width *0.4,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   child: Center(
                       child: Text("REGISTER",
                           style: TextStyle(
@@ -101,10 +143,31 @@ class BottomDesing extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => OtpMobileConfig())),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            transitionDuration: Duration(milliseconds: 400),
+                            transitionsBuilder: (BuildContext context,
+                                Animation<double> animation,
+                                Animation<double> secAnimation,
+                                Widget child) {
+                              animation = CurvedAnimation(
+                                  parent: animation,
+                                  curve: Curves.easeOutQuint);
+                              return ScaleTransition(
+                                alignment: Alignment.center,
+                                scale: animation,
+                                child: child,
+                              );
+                            },
+                            pageBuilder: (BuildContext context,
+                                Animation<double> animation,
+                                Animation<double> secAnimation) {
+                              return OtpMobileConfig();
+                            },
+                          ));
+                    },
                     child: Text(
                       "SKIP IT FOR NOW",
                       style: TextStyle(
