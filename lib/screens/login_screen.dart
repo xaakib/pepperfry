@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:idiya/provider/auth_provider/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'otp_moible_config.dart';
-import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -16,23 +15,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwodController = TextEditingController();
   bool _showPassword = false;
-  loginAPi() async {
-    final response = await http.post(
-      Uri.parse('https://idiya.co.nz/wp-json/api/v1/token'),
-      headers: <String, String>{
-        'Accept': 'application/json',
-      },
-      body: jsonEncode(<String, String>{
-        "username": usernameController.text,
-        "email": emailController.text,
-        "password": passwodController.text,
-      }),
-    );
-    var loginResponse = jsonDecode(response.body);
-  }
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -77,7 +63,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 40),
                   InkWell(
                     onTap: () {
-                      loginAPi();
+                      authProvider.loginAPi(usernameController.text,
+                          emailController.text, passwodController.text);
                     },
                     child: Container(
                       height: 60,
