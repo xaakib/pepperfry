@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'otp_moible_config.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -11,27 +12,24 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final usernameController = TextEditingController();
+
+  final emailController = TextEditingController();
   final passwodController = TextEditingController();
   bool _showPassword = false;
-  // loginAPi(String username, String passowrd) async {
-  //   final response = await http.post(
-  //     Uri.parse('https://idiya.co.nz/wp-json/api/v1/token'),
-  //     headers: <String, String>{
-  //       'Accept': 'application/json',
-  //     },
-  //     body: jsonEncode(<String, String>{
-  //       'username': username,
-  //       'password': passowrd,
-  //     }),
-  //   );
-  //   var datas = jsonDecode(response.body);
-  //   print(datas);
-  //   if (response.statusCode == 200) {
-  //     print("dataok$datas");
-  //   } else {
-  //     print("No Data${datas['message']}");
-  //   }
-  // }
+  loginAPi() async {
+    final response = await http.post(
+      Uri.parse('https://idiya.co.nz/wp-json/api/v1/token'),
+      headers: <String, String>{
+        'Accept': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        "username": usernameController.text,
+        "email": emailController.text,
+        "password": passwodController.text,
+      }),
+    );
+    var loginResponse = jsonDecode(response.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +47,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextFormField(
+                    controller: usernameController,
+                    decoration: InputDecoration(hintText: "Username"),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    controller: emailController,
                     decoration: InputDecoration(hintText: "Email ID/Mobile"),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
                   TextFormField(
+                    controller: passwodController,
                     decoration: InputDecoration(
                         suffixIcon: GestureDetector(
                           onTap: () {
@@ -71,7 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      loginAPi();
+                    },
                     child: Container(
                       height: 60,
                       child: Center(
