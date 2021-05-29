@@ -3,9 +3,7 @@ import 'package:idiya/navigation_bar/home_screen.dart';
 import 'package:idiya/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'provider/auth_provider/auth_provider.dart';
-import 'screens/main_screen.dart';
 
 void main() {
   runApp(MyApp());

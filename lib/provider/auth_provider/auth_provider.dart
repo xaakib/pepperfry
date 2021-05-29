@@ -68,8 +68,10 @@ class AuthProvider extends ChangeNotifier {
       if (registerResponse['code'] == 200) {
         print("succsess reponse${response.body}");
 
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) => LoginScreen()));
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => LoginScreen()));
       } else {
         print("else Response Messages : ${registerResponse['message']}");
       }
