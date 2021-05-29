@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:idiya/global/global_api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,34 +12,30 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  List liveUsers = [];
-  Future getLiveUser() async {
+  List homeProducts = [];
+  Future getHomeProducts() async {
     String authUsername = 'ck_a2c1e52297db9441bcc51eb1f60551f39b0981eb';
     String authPassword = 'cs_90a2fbaf03dd37ff7f50afcdb53c45111f589eb0';
     String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$authUsername:$authPassword'));
-    String getUrl = "https://idiya.co.nz/wp-json/wc/v3/products";
+    print(basicAuth);
 
-    http.Response response = await http.get(
-      Uri.parse(getUrl),
-      headers: <String, String>{'authorization': basicAuth},
-    );
+    final response = await http.get(
+        Uri.parse('https://idiya.co.nz/wp-json/wc/store/products/categories'),
+        headers: <String, String>{'authorization': basicAuth});
 
-    if (response.statusCode == 200) {
-      setState(() {
-        liveUsers = jsonDecode(response.body);
-        print(liveUsers);
-      });
+    homeProducts = jsonDecode(response.body.toString());
+  }
 
-      print("loaded_getLiveUser");
-    } else {
-      print("No loaded_getLiveUser${response.body} ");
-    }
+  @override
+  void initState() {
+    super.initState();
+    getHomeProducts();
   }
 
   @override
   Widget build(BuildContext context) {
-    print(">>>>>>>>>>>>>>>>>>>>>>>liveUsers : ${liveUsers.length}");
+    print(">>>>>>>>>>>>>>>>>>>>>>>liveUsers : ${homeProducts.length}");
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
@@ -99,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 200,
                 color: Colors.red,
                 child: ListView.builder(
-                  itemCount: liveUsers.length,
+                  itemCount: homeProducts.length,
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text("data"),

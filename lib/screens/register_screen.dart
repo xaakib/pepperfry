@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:idiya/provider/auth_provider/auth_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:idiya/global/global_api.dart';
+import 'package:http/http.dart' as http;
+
+import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -13,10 +17,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final passwodController = TextEditingController();
   bool _showPassword = false;
 
+  Future<String> registerApi(
+      String username, email, passowrd, BuildContext context) async {
+    final response = await http.post(
+      Uri.parse(GlobalApi.registerApi),
+      headers: <String, String>{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        "username": username,
+        "email": email,
+        "password": passowrd,
+      }),
+    );
+    var registerResponse = jsonDecode(response.body);
+    try {
+      if (registerResponse['code'] == 200) {
+        print("succsess reponse${response.body}");
+
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => LoginScreen()));
+      } else {
+        print("else Response Messages : ${registerResponse['message']}");
+      }
+    } catch (e) {}
+  }
+
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<AuthProvider>(context, listen: false);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -91,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           InkWell(
                             onTap: () {
                               if (_formKey.currentState.validate()) {
-                                authProvider.registerApi(
+                                registerApi(
                                     usernameController.text,
                                     emailController.text,
                                     passwodController.text,

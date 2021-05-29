@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:idiya/navigation_bar/home_screen.dart';
 import 'package:idiya/screens/login_screen.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'provider/auth_provider/auth_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,19 +34,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     print("Main LoginTOken : $token");
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<AuthProvider>(
-          create: (_) => AuthProvider(),
+    return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'IDIYA',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
-      ],
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'IDIYA',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: token == null ? LoginScreen() : HomeScreen()),
-    );
+        home: token == null ? LoginScreen() : HomeScreen());
   }
 }
