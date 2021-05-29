@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.black.withOpacity(0.03),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 2,
           backgroundColor: Colors.white,

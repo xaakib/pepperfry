@@ -48,7 +48,7 @@ class BottomDesing extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
                         transitionDuration: Duration(milliseconds: 400),
@@ -88,7 +88,7 @@ class BottomDesing extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
                         transitionDuration: Duration(milliseconds: 400),
