@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:idiya/controller/products_controller.dart';
 import 'package:idiya/global/global_api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -12,30 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  List homeProducts = [];
-  Future getHomeProducts() async {
-    String authUsername = 'ck_a2c1e52297db9441bcc51eb1f60551f39b0981eb';
-    String authPassword = 'cs_90a2fbaf03dd37ff7f50afcdb53c45111f589eb0';
-    String basicAuth =
-        'Basic ' + base64Encode(utf8.encode('$authUsername:$authPassword'));
-    print(basicAuth);
-
-    final response = await http.get(
-        Uri.parse('https://idiya.co.nz/wp-json/wc/store/products/categories'),
-        headers: <String, String>{'authorization': basicAuth});
-
-    homeProducts = jsonDecode(response.body.toString());
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getHomeProducts();
-  }
+  final ProductController productController = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {
-    print(">>>>>>>>>>>>>>>>>>>>>>>liveUsers : ${homeProducts.length}");
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
@@ -96,11 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 200,
                 color: Colors.red,
                 child: ListView.builder(
-                  itemCount: homeProducts.length,
+                  itemCount: productController.productsLists.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text("data"),
-                    );
+                    return ListTile(title: Text("Ssss"));
                   },
                 ),
               ),

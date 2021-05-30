@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:idiya/navigation_bar/home_screen.dart';
 import 'package:idiya/screens/login_screen.dart';
+import 'package:idiya/screens/main_home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -40,6 +41,6 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: token == null ? LoginScreen() : HomeScreen());
+        home: token == null ? LoginScreen() : MainHome());
   }
 }
