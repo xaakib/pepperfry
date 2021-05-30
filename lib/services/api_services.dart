@@ -13,6 +13,7 @@ class ApiServices {
 
     if (response.statusCode == 200) {
       var data = response.body;
+      print("apiServices : $data");
       return productsModelFromJson(data);
     } else {
       return null;

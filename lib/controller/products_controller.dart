@@ -10,6 +10,7 @@ class ProductController extends GetxController {
   @override
   void onInit() {
     fetchProducts();
+    print("onInit Running");
     super.onInit();
   }
 
@@ -19,6 +20,7 @@ class ProductController extends GetxController {
       var todos = await ApiServices.getProducts();
       if (todos != null) {
         productsLists.value = todos;
+        print("ProductS : $productsLists");
       }
     } finally {
       isLoading(false);

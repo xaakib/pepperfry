@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:idiya/controller/products_controller.dart';
-import 'package:idiya/global/global_api.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -80,7 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   itemCount: productController.productsLists.length,
                   itemBuilder: (context, index) {
-                    return ListTile(title: Text("Ssss"));
+                    var products = productController.productsLists[index];
+                    return ListTile(
+                      title: Text(products.name),
+                    );
                   },
                 ),
               ),
