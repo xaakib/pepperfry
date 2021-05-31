@@ -35,6 +35,7 @@ class ProducsDetails extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         color: Colors.white,
         child: ListView(
+          physics: BouncingScrollPhysics(),
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -81,7 +82,7 @@ class ProducsDetails extends StatelessWidget {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: NetworkImage(
-                                    "https://images.unsplash.com/photo-1585399000684-d2f72660f092?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                    "https://images.unsplash.com/photo-1601933470096-0e34634ffcde?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
 
                                     // products.images[index].src
                                     ),
@@ -90,12 +91,9 @@ class ProducsDetails extends StatelessWidget {
                       );
                     },
                     slideIndicator: CircularSlideIndicator(
-                      indicatorBackgroundColor: Colors.red,
-                      currentIndicatorColor: Colors.green
-                    ),
-                    slideTransform: CubeTransform(
-                      rotationAngle: 0
-                    ),
+                        indicatorBackgroundColor: Colors.black.withOpacity(0.3),
+                        currentIndicatorColor: Colors.redAccent),
+                    slideTransform: CubeTransform(rotationAngle: 0),
                     itemCount: 10),
               ),
             ),
@@ -155,7 +153,216 @@ class ProducsDetails extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 5),
+                  SizedBox(height: 8),
+                  Container(
+                    height: 1,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    "Lockman And LockMmati Sale)",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, color: Colors.orange),
+                  ),
+                  SizedBox(height: 12),
+                  Container(
+                    height: 40,
+                    child: Center(
+                        child: Text("BUY NOW",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                                fontSize: 18))),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.red[300],
+                        Colors.orange,
+                      ],
+                    )),
+                  ),
+                  SizedBox(height: 12),
+                  Container(
+                    height: 40,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 40,
+                          child: Center(
+                              child: Text("ADD TO WISHLIST",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                      fontSize: 18))),
+                          decoration: BoxDecoration(color: Colors.grey),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 40,
+                          child: Center(
+                              child: Text("ADD TO CART",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                      fontSize: 18))),
+                          decoration: BoxDecoration(color: Colors.red),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 30,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.share_sharp),
+                        SizedBox(width: 5),
+                        Text("Shear this product")
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "PRODUCT DETAILS",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700, color: Colors.black),
+                      ),
+                      SizedBox(height: 5),
+                      Container(
+                        height: 1,
+                        color: Colors.grey.withOpacity(0.5),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Name :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(
+                            child: Text(
+                                "The clean and modern design of this furniture set, along with its nature-inspired colour scheme, will surely be a welcome match to your exteriors as well."),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dimensions :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(child: Text("20 KG"))
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Brands :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(
+                            child: Text(
+                                "The clean and modern design of this furniture set, along with its nature-inspired colour scheme, will surely be a welcome match to your exteriors as well."),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Primary Materials :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(child: Text("Black"))
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Storage :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(
+                            child: Text("36 Month`s warranty"),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Color :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(
+                            child: Text("Carpenter"),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Seater :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(
+                            child: Text("Carpenter"),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Color :",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(width: 50),
+                          Flexible(
+                            child: Text("Carpenter"),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "DESCRIPTION",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                      "The clean and modern design of this furniture set, along with its nature-inspired colour scheme, will surely be a welcome match to your exteriors as well."),
+                  SizedBox(height: 40),
                 ],
               ),
             )
