@@ -4,155 +4,152 @@
 
 import 'dart:convert';
 
-List<ProductsModel> productsModelFromJson(String str) =>
-    List<ProductsModel>.from(
-        json.decode(str).map((x) => ProductsModel.fromJson(x)));
+List<ProductsModel> productsModelFromJson(String str) => List<ProductsModel>.from(json.decode(str).map((x) => ProductsModel.fromJson(x)));
 
-String productsModelToJson(List<ProductsModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String productsModelToJson(List<ProductsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class ProductsModel {
-  ProductsModel({
-    this.id,
-    this.name,
-    this.slug,
-    this.permalink,
-    this.dateCreated,
-    this.dateCreatedGmt,
-    this.dateModified,
-    this.dateModifiedGmt,
-    this.type,
-    this.status,
-    this.featured,
-    this.catalogVisibility,
-    this.description,
-    this.shortDescription,
-    this.sku,
-    this.price,
-    this.regularPrice,
-    this.salePrice,
-    this.dateOnSaleFrom,
-    this.dateOnSaleFromGmt,
-    this.dateOnSaleTo,
-    this.dateOnSaleToGmt,
-    this.onSale,
-    this.purchasable,
-    this.totalSales,
-    this.virtual,
-    this.downloadable,
-    this.downloads,
-    this.downloadLimit,
-    this.downloadExpiry,
-    this.externalUrl,
-    this.buttonText,
-    this.taxStatus,
-    this.taxClass,
-    this.manageStock,
-    this.stockQuantity,
-    this.backorders,
-    this.backordersAllowed,
-    this.backordered,
-    this.lowStockAmount,
-    this.soldIndividually,
-    this.weight,
-    this.dimensions,
-    this.shippingRequired,
-    this.shippingTaxable,
-    this.shippingClass,
-    this.shippingClassId,
-    this.reviewsAllowed,
-    this.averageRating,
-    this.ratingCount,
-    this.upsellIds,
-    this.crossSellIds,
-    this.parentId,
-    this.purchaseNote,
-    this.categories,
-    this.tags,
-    this.images,
-    this.attributes,
-    this.defaultAttributes,
-    this.variations,
-    this.groupedProducts,
-    this.menuOrder,
-    this.priceHtml,
-    this.relatedIds,
-    this.metaData,
-    this.stockStatus,
-    this.yoastHead,
-    this.links,
-  });
+    ProductsModel({
+        this.id,
+        this.name,
+        this.slug,
+        this.permalink,
+        this.dateCreated,
+        this.dateCreatedGmt,
+        this.dateModified,
+        this.dateModifiedGmt,
+        this.type,
+        this.status,
+        this.featured,
+        this.catalogVisibility,
+        this.description,
+        this.shortDescription,
+        this.sku,
+        this.price,
+        this.regularPrice,
+        this.salePrice,
+        this.dateOnSaleFrom,
+        this.dateOnSaleFromGmt,
+        this.dateOnSaleTo,
+        this.dateOnSaleToGmt,
+        this.onSale,
+        this.purchasable,
+        this.totalSales,
+        this.virtual,
+        this.downloadable,
+        this.downloads,
+        this.downloadLimit,
+        this.downloadExpiry,
+        this.externalUrl,
+        this.buttonText,
+        this.taxStatus,
+        this.taxClass,
+        this.manageStock,
+        this.stockQuantity,
+        this.backorders,
+        this.backordersAllowed,
+        this.backordered,
+        this.lowStockAmount,
+        this.soldIndividually,
+        this.weight,
+        this.dimensions,
+        this.shippingRequired,
+        this.shippingTaxable,
+        this.shippingClass,
+        this.shippingClassId,
+        this.reviewsAllowed,
+        this.averageRating,
+        this.ratingCount,
+        this.upsellIds,
+        this.crossSellIds,
+        this.parentId,
+        this.purchaseNote,
+        this.categories,
+        this.tags,
+        this.images,
+        this.attributes,
+        this.defaultAttributes,
+        this.variations,
+        this.groupedProducts,
+        this.menuOrder,
+        this.priceHtml,
+        this.relatedIds,
+        this.metaData,
+        this.stockStatus,
+        this.yoastHead,
+        this.links,
+    });
 
-  int id;
-  String name;
-  String slug;
-  String permalink;
-  DateTime dateCreated;
-  DateTime dateCreatedGmt;
-  DateTime dateModified;
-  DateTime dateModifiedGmt;
-  Type type;
-  Status status;
-  bool featured;
-  CatalogVisibility catalogVisibility;
-  String description;
-  String shortDescription;
-  String sku;
-  String price;
-  String regularPrice;
-  String salePrice;
-  dynamic dateOnSaleFrom;
-  dynamic dateOnSaleFromGmt;
-  dynamic dateOnSaleTo;
-  dynamic dateOnSaleToGmt;
-  bool onSale;
-  bool purchasable;
-  int totalSales;
-  bool virtual;
-  bool downloadable;
-  List<dynamic> downloads;
-  int downloadLimit;
-  int downloadExpiry;
-  String externalUrl;
-  String buttonText;
-  TaxStatus taxStatus;
-  String taxClass;
-  bool manageStock;
-  int stockQuantity;
-  Backorders backorders;
-  bool backordersAllowed;
-  bool backordered;
-  int lowStockAmount;
-  bool soldIndividually;
-  String weight;
-  Dimensions dimensions;
-  bool shippingRequired;
-  bool shippingTaxable;
-  String shippingClass;
-  int shippingClassId;
-  bool reviewsAllowed;
-  String averageRating;
-  int ratingCount;
-  List<dynamic> upsellIds;
-  List<dynamic> crossSellIds;
-  int parentId;
-  String purchaseNote;
-  List<Category> categories;
-  List<Category> tags;
-  List<Image> images;
-  List<Attribute> attributes;
-  List<dynamic> defaultAttributes;
-  List<dynamic> variations;
-  List<dynamic> groupedProducts;
-  int menuOrder;
-  String priceHtml;
-  List<int> relatedIds;
-  List<MetaDatum> metaData;
-  StockStatus stockStatus;
-  String yoastHead;
-  Links links;
+    int id;
+    String name;
+    String slug;
+    String permalink;
+    DateTime dateCreated;
+    DateTime dateCreatedGmt;
+    DateTime dateModified;
+    DateTime dateModifiedGmt;
+    Type type;
+    Status status;
+    bool featured;
+    CatalogVisibility catalogVisibility;
+    String description;
+    String shortDescription;
+    String sku;
+    String price;
+    String regularPrice;
+    String salePrice;
+    dynamic dateOnSaleFrom;
+    dynamic dateOnSaleFromGmt;
+    dynamic dateOnSaleTo;
+    dynamic dateOnSaleToGmt;
+    bool onSale;
+    bool purchasable;
+    int totalSales;
+    bool virtual;
+    bool downloadable;
+    List<dynamic> downloads;
+    int downloadLimit;
+    int downloadExpiry;
+    String externalUrl;
+    String buttonText;
+    TaxStatus taxStatus;
+    String taxClass;
+    bool manageStock;
+    int stockQuantity;
+    Backorders backorders;
+    bool backordersAllowed;
+    bool backordered;
+    int lowStockAmount;
+    bool soldIndividually;
+    String weight;
+    Dimensions dimensions;
+    bool shippingRequired;
+    bool shippingTaxable;
+    String shippingClass;
+    int shippingClassId;
+    bool reviewsAllowed;
+    String averageRating;
+    int ratingCount;
+    List<dynamic> upsellIds;
+    List<dynamic> crossSellIds;
+    int parentId;
+    String purchaseNote;
+    List<Category> categories;
+    List<Category> tags;
+    List<Image> images;
+    List<Attribute> attributes;
+    List<dynamic> defaultAttributes;
+    List<dynamic> variations;
+    List<dynamic> groupedProducts;
+    int menuOrder;
+    String priceHtml;
+    List<int> relatedIds;
+    List<MetaDatum> metaData;
+    StockStatus stockStatus;
+    String yoastHead;
+    Links links;
 
-  factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
+    factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
         id: json["id"],
         name: json["name"],
         slug: json["slug"],
@@ -164,8 +161,7 @@ class ProductsModel {
         type: typeValues.map[json["type"]],
         status: statusValues.map[json["status"]],
         featured: json["featured"],
-        catalogVisibility:
-            catalogVisibilityValues.map[json["catalog_visibility"]],
+        catalogVisibility: catalogVisibilityValues.map[json["catalog_visibility"]],
         description: json["description"],
         shortDescription: json["short_description"],
         sku: json["sku"],
@@ -193,8 +189,7 @@ class ProductsModel {
         backorders: backordersValues.map[json["backorders"]],
         backordersAllowed: json["backorders_allowed"],
         backordered: json["backordered"],
-        lowStockAmount:
-            json["low_stock_amount"] == null ? null : json["low_stock_amount"],
+        lowStockAmount: json["low_stock_amount"] == null ? null : json["low_stock_amount"],
         soldIndividually: json["sold_individually"],
         weight: json["weight"],
         dimensions: Dimensions.fromJson(json["dimensions"]),
@@ -209,29 +204,23 @@ class ProductsModel {
         crossSellIds: List<dynamic>.from(json["cross_sell_ids"].map((x) => x)),
         parentId: json["parent_id"],
         purchaseNote: json["purchase_note"],
-        categories: List<Category>.from(
-            json["categories"].map((x) => Category.fromJson(x))),
-        tags:
-            List<Category>.from(json["tags"].map((x) => Category.fromJson(x))),
+        categories: List<Category>.from(json["categories"].map((x) => Category.fromJson(x))),
+        tags: List<Category>.from(json["tags"].map((x) => Category.fromJson(x))),
         images: List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
-        attributes: List<Attribute>.from(
-            json["attributes"].map((x) => Attribute.fromJson(x))),
-        defaultAttributes:
-            List<dynamic>.from(json["default_attributes"].map((x) => x)),
+        attributes: List<Attribute>.from(json["attributes"].map((x) => Attribute.fromJson(x))),
+        defaultAttributes: List<dynamic>.from(json["default_attributes"].map((x) => x)),
         variations: List<dynamic>.from(json["variations"].map((x) => x)),
-        groupedProducts:
-            List<dynamic>.from(json["grouped_products"].map((x) => x)),
+        groupedProducts: List<dynamic>.from(json["grouped_products"].map((x) => x)),
         menuOrder: json["menu_order"],
         priceHtml: json["price_html"],
         relatedIds: List<int>.from(json["related_ids"].map((x) => x)),
-        metaData: List<MetaDatum>.from(
-            json["meta_data"].map((x) => MetaDatum.fromJson(x))),
+        metaData: List<MetaDatum>.from(json["meta_data"].map((x) => MetaDatum.fromJson(x))),
         stockStatus: stockStatusValues.map[json["stock_status"]],
         yoastHead: json["yoast_head"],
         links: Links.fromJson(json["_links"]),
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "slug": slug,
@@ -243,8 +232,7 @@ class ProductsModel {
         "type": typeValues.reverse[type],
         "status": statusValues.reverse[status],
         "featured": featured,
-        "catalog_visibility":
-            catalogVisibilityValues.reverse[catalogVisibility],
+        "catalog_visibility": catalogVisibilityValues.reverse[catalogVisibility],
         "description": description,
         "short_description": shortDescription,
         "sku": sku,
@@ -291,8 +279,7 @@ class ProductsModel {
         "tags": List<dynamic>.from(tags.map((x) => x.toJson())),
         "images": List<dynamic>.from(images.map((x) => x.toJson())),
         "attributes": List<dynamic>.from(attributes.map((x) => x.toJson())),
-        "default_attributes":
-            List<dynamic>.from(defaultAttributes.map((x) => x)),
+        "default_attributes": List<dynamic>.from(defaultAttributes.map((x) => x)),
         "variations": List<dynamic>.from(variations.map((x) => x)),
         "grouped_products": List<dynamic>.from(groupedProducts.map((x) => x)),
         "menu_order": menuOrder,
@@ -302,125 +289,128 @@ class ProductsModel {
         "stock_status": stockStatusValues.reverse[stockStatus],
         "yoast_head": yoastHead,
         "_links": links.toJson(),
-      };
+    };
 }
 
 class Attribute {
-  Attribute({
-    this.id,
-    this.name,
-    this.position,
-    this.visible,
-    this.variation,
-    this.options,
-  });
+    Attribute({
+        this.id,
+        this.name,
+        this.position,
+        this.visible,
+        this.variation,
+        this.options,
+    });
 
-  int id;
-  String name;
-  int position;
-  bool visible;
-  bool variation;
-  List<String> options;
+    int id;
+    String name;
+    int position;
+    bool visible;
+    bool variation;
+    List<String> options;
 
-  factory Attribute.fromJson(Map<String, dynamic> json) => Attribute(
+    factory Attribute.fromJson(Map<String, dynamic> json) => Attribute(
         id: json["id"],
         name: json["name"],
         position: json["position"],
         visible: json["visible"],
         variation: json["variation"],
         options: List<String>.from(json["options"].map((x) => x)),
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "position": position,
         "visible": visible,
         "variation": variation,
         "options": List<dynamic>.from(options.map((x) => x)),
-      };
+    };
 }
 
 enum Backorders { NO, NOTIFY }
 
-final backordersValues =
-    EnumValues({"no": Backorders.NO, "notify": Backorders.NOTIFY});
+final backordersValues = EnumValues({
+    "no": Backorders.NO,
+    "notify": Backorders.NOTIFY
+});
 
 enum CatalogVisibility { VISIBLE }
 
-final catalogVisibilityValues =
-    EnumValues({"visible": CatalogVisibility.VISIBLE});
+final catalogVisibilityValues = EnumValues({
+    "visible": CatalogVisibility.VISIBLE
+});
 
 class Category {
-  Category({
-    this.id,
-    this.name,
-    this.slug,
-  });
+    Category({
+        this.id,
+        this.name,
+        this.slug,
+    });
 
-  int id;
-  String name;
-  String slug;
+    int id;
+    String name;
+    String slug;
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
+    factory Category.fromJson(Map<String, dynamic> json) => Category(
         id: json["id"],
         name: json["name"],
         slug: json["slug"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "slug": slug,
-      };
+    };
 }
 
 class Dimensions {
-  Dimensions({
-    this.length,
-    this.width,
-    this.height,
-  });
+    Dimensions({
+        this.length,
+        this.width,
+        this.height,
+    });
 
-  String length;
-  String width;
-  String height;
+    String length;
+    String width;
+    String height;
 
-  factory Dimensions.fromJson(Map<String, dynamic> json) => Dimensions(
+    factory Dimensions.fromJson(Map<String, dynamic> json) => Dimensions(
         length: json["length"],
         width: json["width"],
         height: json["height"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "length": length,
         "width": width,
         "height": height,
-      };
+    };
 }
 
 class Image {
-  Image({
-    this.id,
-    this.dateCreated,
-    this.dateCreatedGmt,
-    this.dateModified,
-    this.dateModifiedGmt,
-    this.src,
-    this.name,
-    this.alt,
-  });
+    Image({
+        this.id,
+        this.dateCreated,
+        this.dateCreatedGmt,
+        this.dateModified,
+        this.dateModifiedGmt,
+        this.src,
+        this.name,
+        this.alt,
+    });
 
-  int id;
-  DateTime dateCreated;
-  DateTime dateCreatedGmt;
-  DateTime dateModified;
-  DateTime dateModifiedGmt;
-  String src;
-  String name;
-  Alt alt;
+    int id;
+    DateTime dateCreated;
+    DateTime dateCreatedGmt;
+    DateTime dateModified;
+    DateTime dateModifiedGmt;
+    String src;
+    String name;
+    Alt alt;
 
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
+    factory Image.fromJson(Map<String, dynamic> json) => Image(
         id: json["id"],
         dateCreated: DateTime.parse(json["date_created"]),
         dateCreatedGmt: DateTime.parse(json["date_created_gmt"]),
@@ -429,9 +419,9 @@ class Image {
         src: json["src"],
         name: json["name"],
         alt: altValues.map[json["alt"]],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "date_created": dateCreated.toIso8601String(),
         "date_created_gmt": dateCreatedGmt.toIso8601String(),
@@ -440,135 +430,135 @@ class Image {
         "src": src,
         "name": name,
         "alt": altValues.reverse[alt],
-      };
+    };
 }
 
-enum Alt {
-  EMPTY,
-  PORTABLE_TOILET_SINGLE_SEAT_BLUE_COLOUR,
-  BELFAST_FLAT_PACK_PORTABLE_CONTAINER_SHOP
-}
+enum Alt { EMPTY, PORTABLE_TOILET_SINGLE_SEAT_BLUE_COLOUR, BELFAST_FLAT_PACK_PORTABLE_CONTAINER_SHOP }
 
 final altValues = EnumValues({
-  "BELFAST Flat Pack Portable Container Shop":
-      Alt.BELFAST_FLAT_PACK_PORTABLE_CONTAINER_SHOP,
-  "": Alt.EMPTY,
-  "Portable toilet single seat blue colour":
-      Alt.PORTABLE_TOILET_SINGLE_SEAT_BLUE_COLOUR
+    "BELFAST Flat Pack Portable Container Shop": Alt.BELFAST_FLAT_PACK_PORTABLE_CONTAINER_SHOP,
+    "": Alt.EMPTY,
+    "Portable toilet single seat blue colour": Alt.PORTABLE_TOILET_SINGLE_SEAT_BLUE_COLOUR
 });
 
 class Links {
-  Links({
-    this.self,
-    this.collection,
-  });
+    Links({
+        this.self,
+        this.collection,
+    });
 
-  List<Collection> self;
-  List<Collection> collection;
+    List<Collection> self;
+    List<Collection> collection;
 
-  factory Links.fromJson(Map<String, dynamic> json) => Links(
-        self: List<Collection>.from(
-            json["self"].map((x) => Collection.fromJson(x))),
-        collection: List<Collection>.from(
-            json["collection"].map((x) => Collection.fromJson(x))),
-      );
+    factory Links.fromJson(Map<String, dynamic> json) => Links(
+        self: List<Collection>.from(json["self"].map((x) => Collection.fromJson(x))),
+        collection: List<Collection>.from(json["collection"].map((x) => Collection.fromJson(x))),
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "self": List<dynamic>.from(self.map((x) => x.toJson())),
         "collection": List<dynamic>.from(collection.map((x) => x.toJson())),
-      };
+    };
 }
 
 class Collection {
-  Collection({
-    this.href,
-  });
+    Collection({
+        this.href,
+    });
 
-  String href;
+    String href;
 
-  factory Collection.fromJson(Map<String, dynamic> json) => Collection(
+    factory Collection.fromJson(Map<String, dynamic> json) => Collection(
         href: json["href"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "href": href,
-      };
+    };
 }
 
 class MetaDatum {
-  MetaDatum({
-    this.id,
-    this.key,
-    this.value,
-  });
+    MetaDatum({
+        this.id,
+        this.key,
+        this.value,
+    });
 
-  int id;
-  String key;
-  dynamic value;
+    int id;
+    String key;
+    dynamic value;
 
-  factory MetaDatum.fromJson(Map<String, dynamic> json) => MetaDatum(
+    factory MetaDatum.fromJson(Map<String, dynamic> json) => MetaDatum(
         id: json["id"],
         key: json["key"],
         value: json["value"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "key": key,
         "value": value,
-      };
+    };
 }
 
 class ValueElement {
-  ValueElement({
-    this.title,
-    this.linkTxt,
-    this.desc,
-  });
+    ValueElement({
+        this.title,
+        this.linkTxt,
+        this.desc,
+    });
 
-  String title;
-  String linkTxt;
-  String desc;
+    String title;
+    String linkTxt;
+    String desc;
 
-  factory ValueElement.fromJson(Map<String, dynamic> json) => ValueElement(
+    factory ValueElement.fromJson(Map<String, dynamic> json) => ValueElement(
         title: json["title"],
         linkTxt: json["link_txt"],
         desc: json["desc"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "title": title,
         "link_txt": linkTxt,
         "desc": desc,
-      };
+    };
 }
 
 enum Status { PUBLISH }
 
-final statusValues = EnumValues({"publish": Status.PUBLISH});
+final statusValues = EnumValues({
+    "publish": Status.PUBLISH
+});
 
 enum StockStatus { INSTOCK }
 
-final stockStatusValues = EnumValues({"instock": StockStatus.INSTOCK});
+final stockStatusValues = EnumValues({
+    "instock": StockStatus.INSTOCK
+});
 
 enum TaxStatus { TAXABLE }
 
-final taxStatusValues = EnumValues({"taxable": TaxStatus.TAXABLE});
+final taxStatusValues = EnumValues({
+    "taxable": TaxStatus.TAXABLE
+});
 
 enum Type { SIMPLE }
 
-final typeValues = EnumValues({"simple": Type.SIMPLE});
+final typeValues = EnumValues({
+    "simple": Type.SIMPLE
+});
 
 class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
+    Map<String, T> map;
+    Map<T, String> reverseMap;
 
-  EnumValues(this.map);
+    EnumValues(this.map);
 
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
+    Map<T, String> get reverse {
+        if (reverseMap == null) {
+            reverseMap = map.map((k, v) => new MapEntry(v, k));
+        }
+        return reverseMap;
     }
-    return reverseMap;
-  }
 }
