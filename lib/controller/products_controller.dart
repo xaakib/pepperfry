@@ -17,9 +17,9 @@ class ProductController extends GetxController {
   void fetchProducts() async {
     isLoading(true);
     try {
-      var todos = await ApiServices.getProducts();
-      if (todos != null) {
-        productsLists.value = todos;
+      var products = await ApiServices.getProducts();
+      if (products != null) {
+        productsLists.value = products;
         print("ProductS : $productsLists");
       }
     } finally {

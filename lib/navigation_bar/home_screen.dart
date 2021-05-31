@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:idiya/controller/products_controller.dart';
+import 'package:idiya/navigation_bar/products_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -69,19 +70,19 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 200,
-                color: Colors.red,
-                child: ListView.builder(
-                  itemCount: productController.productsLists.length,
-                  itemBuilder: (context, index) {
-                    var products = productController.productsLists[index];
-                    return ListTile(
-                      title: Text(products.name),
-                    );
-                  },
-                ),
-              ),
+              // Container(
+              //   height: 200,
+              //   color: Colors.red,
+              //   child: ListView.builder(
+              //     itemCount: productController.productsLists.length,
+              //     itemBuilder: (context, index) {
+              //       var products = productController.productsLists[index];
+              //       return ListTile(
+              //         title: Text(products.name),
+              //       );
+              //     },
+              //   ),
+              // ),
               Container(
                 height: 230,
                 color: Colors.white,
@@ -147,16 +148,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 260,
                         width: MediaQuery.of(context).size.width,
                         color: Colors.white,
-                        child: ListView(
+                        child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           physics: BouncingScrollPhysics(),
-                          children: [
-                            SuperFreshItems(),
-                            SuperFreshItems(),
-                            SuperFreshItems(),
-                            SuperFreshItems(),
-                            SuperFreshItems(),
-                          ],
+                          itemBuilder: (context, index) {
+                            var products =
+                                productController.productsLists[index];
+                            return SuperFreshItems(
+                              name: products.name,
+                              imageUrl: products.images[index].src,
+                            );
+                          },
+                          itemCount: productController.productsLists.length,
                         )),
                     Container(
                       height: 60,
@@ -397,75 +400,81 @@ class _DrawerClassState extends State<DrawerClass> {
 }
 
 class SuperFreshItems extends StatelessWidget {
-  const SuperFreshItems({
-    Key key,
-  }) : super(key: key);
+  final imageUrl, name;
 
+  const SuperFreshItems({Key key, this.imageUrl, this.name}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 200,
-            width: 180,
-            decoration: BoxDecoration(
-                color: Colors.yellow,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8LnjDtFG-zclEGOjZKJ74ClreaheG9RtgA&usqp=CAU"))),
-          ),
-          SizedBox(height: 5),
-          Container(
-            width: 180,
-            child: Text(
-              "Juro 4 Door Since Cabnet",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ProducsDetails()));
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 200,
+              width: 180,
+              decoration: BoxDecoration(
+                  color: Colors.yellow,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(imageUrl == null
+                          ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8LnjDtFG-zclEGOjZKJ74ClreaheG9RtgA&usqp=CAU"
+                          : imageUrl))),
+            ),
+            SizedBox(height: 5),
+            Container(
+              width: 180,
+              child: Text(
+                name == null ? "" : name,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
-              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          SizedBox(height: 5),
-          Container(
-            width: 180,
-            child: Row(
-              children: [
-                Text(
-                  "NZ \$600",
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: Colors.red,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(width: 4),
-                Text(
-                  "NZ \$560",
-                  style: TextStyle(
-                      fontSize: 14,
+            SizedBox(height: 5),
+            Container(
+              width: 180,
+              child: Row(
+                children: [
+                  Text(
+                    "NZ \$600",
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.red,
                       fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.lineThrough),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(width: 2),
-                Text(
-                  "(60% off)",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          )
-        ],
+                  SizedBox(width: 4),
+                  Text(
+                    "NZ \$560",
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.lineThrough),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(width: 2),
+                  Text(
+                    "(60% off)",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

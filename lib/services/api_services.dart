@@ -8,7 +8,8 @@ class ApiServices {
     String basicAuth = 'Basic ' +
         base64Encode(
             utf8.encode(GlobalApi.authUsername + GlobalApi.authPassword));
-    final response = await http.get(Uri.parse(GlobalApi.productApi),
+    final response = await http.get(
+        Uri.parse("https://idiya.co.nz/wp-json/wc/v3/products"),
         headers: <String, String>{'authorization': basicAuth});
 
     if (response.statusCode == 200) {
@@ -16,6 +17,7 @@ class ApiServices {
       print("apiServices : $data");
       return productsModelFromJson(data);
     } else {
+      print("No api calling");
       return null;
     }
   }
