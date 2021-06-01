@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
-import 'package:idiya/controller/products_controller.dart';
 import 'package:idiya/navigation_bar/products_details.dart';
+import 'package:woocommerce/woocommerce.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,14 +8,40 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var scaffoldKey = GlobalKey<ScaffoldState>();
-  final ProductController productController = Get.put(ProductController());
+  final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
+
+  List<WooProduct> products = [];
+  List<WooProduct> featuredProducts = [];
+  WooCommerce wooCommerce = WooCommerce(
+    baseUrl: "https://idiya.co.nz",
+    consumerKey: "ck_a2c1e52297db9441bcc51eb1f60551f39b0981eb",
+    consumerSecret: "cs_90a2fbaf03dd37ff7f50afcdb53c45111f589eb0",
+    isDebug: true,
+  );
+
+  getProducts() async {
+    products = await wooCommerce.getProducts(
+      category: "3239",
+    );
+    setState(() {
+      print(products.length);
+    });
+  }
+
+ 
+
+  @override
+  void initState() {
+    super.initState();
+    //You would want to use a feature builder instead.
+    getProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: scaffoldKey,
+        key: _scaffoldkey,
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 2,
@@ -24,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           leading: IconButton(
               icon: Icon(Icons.menu, color: Colors.black),
               onPressed: () {
-                scaffoldKey.currentState.openDrawer();
+                _scaffoldkey.currentState.openDrawer();
               }),
           centerTitle: false,
           leadingWidth: 30,
@@ -37,7 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                getProducts();
+              },
               child: Container(
                 height: 25,
                 width: 25,
@@ -70,19 +97,6 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Container(
-              //   height: 200,
-              //   color: Colors.red,
-              //   child: ListView.builder(
-              //     itemCount: productController.productsLists.length,
-              //     itemBuilder: (context, index) {
-              //       var products = productController.productsLists[index];
-              //       return ListTile(
-              //         title: Text(products.name),
-              //       );
-              //     },
-              //   ),
-              // ),
               Container(
                 height: 230,
                 color: Colors.white,
@@ -152,14 +166,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           physics: BouncingScrollPhysics(),
                           itemBuilder: (context, index) {
-                            var products =
-                                productController.productsLists[index];
+                            final product = products[index];
                             return SuperFreshItems(
-                              name: products.name,
-                              imageUrl: products.images[index].src,
-                            );
+                                id: product.id,
+                                name: product.name,
+                                imageUrl: product.images[0].src);
                           },
-                          itemCount: productController.productsLists.length,
+                          itemCount: products.length,
                         )),
                     Container(
                       height: 60,
@@ -400,17 +413,23 @@ class _DrawerClassState extends State<DrawerClass> {
 }
 
 class SuperFreshItems extends StatelessWidget {
-  final imageUrl, name;
+  final String imageUrl, name;
+  final int id;
 
-  const SuperFreshItems({Key key, this.imageUrl, this.name}) : super(key: key);
+  const SuperFreshItems({Key key, this.imageUrl, this.name, this.id})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: InkWell(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ProducsDetails()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProducsDetails(
+                        id: id,
+                      )));
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -422,9 +441,7 @@ class SuperFreshItems extends StatelessWidget {
                   color: Colors.yellow,
                   image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage(imageUrl == null
-                          ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8LnjDtFG-zclEGOjZKJ74ClreaheG9RtgA&usqp=CAU"
-                          : imageUrl))),
+                      image: NetworkImage(imageUrl.toString()))),
             ),
             SizedBox(height: 5),
             Container(

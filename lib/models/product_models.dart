@@ -408,7 +408,7 @@ class Image {
     DateTime dateModifiedGmt;
     String src;
     String name;
-    Alt alt;
+    String alt;
 
     factory Image.fromJson(Map<String, dynamic> json) => Image(
         id: json["id"],
@@ -418,7 +418,7 @@ class Image {
         dateModifiedGmt: DateTime.parse(json["date_modified_gmt"]),
         src: json["src"],
         name: json["name"],
-        alt: altValues.map[json["alt"]],
+        alt: json["alt"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -429,17 +429,9 @@ class Image {
         "date_modified_gmt": dateModifiedGmt.toIso8601String(),
         "src": src,
         "name": name,
-        "alt": altValues.reverse[alt],
+        "alt": alt,
     };
 }
-
-enum Alt { EMPTY, PORTABLE_TOILET_SINGLE_SEAT_BLUE_COLOUR, BELFAST_FLAT_PACK_PORTABLE_CONTAINER_SHOP }
-
-final altValues = EnumValues({
-    "BELFAST Flat Pack Portable Container Shop": Alt.BELFAST_FLAT_PACK_PORTABLE_CONTAINER_SHOP,
-    "": Alt.EMPTY,
-    "Portable toilet single seat blue colour": Alt.PORTABLE_TOILET_SINGLE_SEAT_BLUE_COLOUR
-});
 
 class Links {
     Links({

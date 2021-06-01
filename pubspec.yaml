@@ -24,11 +24,13 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  dio:
+  dio: null
   flutter_carousel_slider: ^1.0.8
+  flutter_html: ^2.0.0
   get: ^4.1.4
-  http: ^0.13.3
+  http: ^0.12.1
   shared_preferences: ^2.0.6
+  woocommerce: ^0.9.7
 
 dev_dependencies:
   flutter_test:
