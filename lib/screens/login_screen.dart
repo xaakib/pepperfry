@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:idiya/global/global_api.dart';
 import 'package:idiya/navigation_bar/home_screen.dart';
 import 'package:http/http.dart' as http;
+import 'package:idiya/screens/register_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'otp_moible_config.dart';
@@ -177,14 +178,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(height: 100),
-                Center(
-                  child: Text("New To Pepperfry? Register Here",
-                      style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          decorationThickness: 2,
-                          color: Colors.red,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600)),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 700),
+                        transitionsBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secAnimation,
+                            Widget child) {
+                          animation = CurvedAnimation(
+                              parent: animation, curve: Curves.easeInOut);
+                          return ScaleTransition(
+                            alignment: Alignment.center,
+                            scale: animation,
+                            child: child,
+                          );
+                        },
+                        pageBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secAnimation) {
+                          return RegisterScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: Center(
+                    child: Text("New To Pepperfry? Register Here",
+                        style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            decorationThickness: 2,
+                            color: Colors.red,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600)),
+                  ),
                 ),
                 SizedBox(height: 40),
                 Row(

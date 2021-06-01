@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_carousel_slider/carousel_slider_transforms.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:woocommerce/woocommerce.dart';
 
 class ProducsDetails extends StatefulWidget {
@@ -74,7 +75,7 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 10),
-                        Text("title",
+                        Text(product.name,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -108,6 +109,7 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: FadeInImage(
+                                fit: BoxFit.fill,
                                 image: NetworkImage(products.src),
                                 placeholder: AssetImage(
                                     "assets/Icons/loadingiamage.gif"),
@@ -278,8 +280,7 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                                 ),
                                 SizedBox(width: 50),
                                 Flexible(
-                                  child: Text(
-                                      "The clean and modern design of this furniture set, along with its nature-inspired colour scheme, will surely be a welcome match to your exteriors as well."),
+                                  child: Text(product.name),
                                 )
                               ],
                             ),
@@ -292,21 +293,37 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                                   style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
                                 SizedBox(width: 50),
-                                Flexible(child: Text("20 KG"))
+                                Flexible(
+                                    child: Text(
+                                        "length: ${product.dimensions.length}, width :${product.dimensions.width}, height :${product.dimensions.height}"))
                               ],
                             ),
                             SizedBox(height: 10),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Brands :",
-                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                Row(
+                                  children: [
+                                    Text(
+                                      product.attributes[0].name == null
+                                          ? ""
+                                          : product.attributes[0].name
+                                              .toString(),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    Text(
+                                      " :",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ],
                                 ),
                                 SizedBox(width: 50),
                                 Flexible(
                                   child: Text(
-                                      "The clean and modern design of this furniture set, along with its nature-inspired colour scheme, will surely be a welcome match to your exteriors as well."),
+                                    product.attributes[0].options[0].toString(),
+                                  ),
                                 )
                               ],
                             ),
@@ -319,7 +336,12 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                                   style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
                                 SizedBox(width: 50),
-                                Flexible(child: Text("Black"))
+                                Flexible(
+                                    child: Text(
+                                        product.attributes[1].options == null
+                                            ? ""
+                                            : product.attributes[1].options
+                                                .toString()))
                               ],
                             ),
                             SizedBox(height: 10),
@@ -332,7 +354,11 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                                 ),
                                 SizedBox(width: 50),
                                 Flexible(
-                                  child: Text("36 Month`s warranty"),
+                                  child: Text(
+                                      product.attributes[2].options[0] == null
+                                          ? ""
+                                          : product.attributes[2].options[0]
+                                              .toString()),
                                 )
                               ],
                             ),
@@ -346,7 +372,7 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                                 ),
                                 SizedBox(width: 50),
                                 Flexible(
-                                  child: Text("Carpenter"),
+                                  child: Text(""),
                                 )
                               ],
                             ),
@@ -388,8 +414,9 @@ class _ProducsDetailsState extends State<ProducsDetails> {
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         SizedBox(height: 10),
-                        Text(
-                            "The clean and modern design of this furniture set, along with its nature-inspired colour scheme, will surely be a welcome match to your exteriors as well."),
+                        Html(
+                          data: product.description,
+                        ),
                         SizedBox(height: 40),
                       ],
                     ),
